@@ -3,15 +3,14 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
-import ProTip from './ProTip';
 import GetState from './GetList';
-import fetch from 'node-fetch';
 import MediaControlCard from './Home';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+const fetch = require('node-fetch');
 
 function Copyright() {
   return (
@@ -32,7 +31,13 @@ export default function App() {
     async function fetchStateList(){
       try{
         const urlState = 'https://cdn-api.co-vin.in/api/v2/admin/location/states';
-        const response = await fetch(urlState);
+        const response = await fetch(urlState,{
+          mode: 'cors',
+          headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin':'*',
+          "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Mobile Safari/537.36"
+      }});
         const resJSON = await response.json();
         const states = await resJSON.states;
         console.log("hello");
