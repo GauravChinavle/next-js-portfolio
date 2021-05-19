@@ -22,7 +22,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3"
   },
-  "proxy": "https://www.gauravchinavle.dev/",
+  "proxy": "http://www.gauravchinavle.dev/",
   "browserslist": {
     "production": [
       ">0.2%",
