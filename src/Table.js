@@ -144,7 +144,7 @@ export default function CollapsibleTable(props) {
         const date = moment().utc().utcOffset("+05:30").format('DD-MM-YYYY');
         const urlCenter = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district}&date=${date}`;
         const response = await fetch(urlCenter,{
-          mode: 'no-cors',
+          method: 'GET',
           headers: {
           "Content-Type": "application/json",
           'Access-Control-Allow-Origin':'*',
