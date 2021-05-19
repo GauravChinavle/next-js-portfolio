@@ -78,7 +78,7 @@ function GetDistrict(props) {
       try{
         const urlDist = `https://cdn-api.co-vin.in/api/v2/admin/location/districts/${state}`;
         const response = await fetch(urlDist,{
-          mode: 'no-cors',
+          mode: 'cors',
           headers: {
           "Content-Type": "application/json",
           "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Mobile Safari/537.36"
