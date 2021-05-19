@@ -144,9 +144,9 @@ export default function CollapsibleTable(props) {
         const date = moment().utc().utcOffset("+05:30").format('DD-MM-YYYY');
         const urlCenter = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district}&date=${date}`;
         const response = await fetch(urlCenter,{
+          mode: 'no-cors',
           headers: {
           "Content-Type": "application/json",
-          'Access-Control-Allow-Origin':'*',
           "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Mobile Safari/537.36"
       }});
         const resJSON = await response.json();
