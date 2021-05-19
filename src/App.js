@@ -32,7 +32,6 @@ export default function App() {
       try{
         const urlState = 'https://cdn-api.co-vin.in/api/v2/admin/location/states';
         const response = await fetch(urlState,{
-          method: 'GET',
           headers: {
           "Content-Type": "application/json",
           'Access-Control-Allow-Origin':'*',
