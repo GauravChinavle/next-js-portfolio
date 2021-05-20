@@ -10,10 +10,6 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-const fetch = require('node-fetch');
-const UserAgent = require('user-agents'); 
-   
-const userAgent = new UserAgent();
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -33,12 +29,13 @@ export default function App() {
     async function fetchStateList(){
       try{
         const urlState = 'https://cdn-api.co-vin.in/api/v2/admin/location/states';
-        await fetch(urlState,{
+        const response =  await fetch(urlState,{
           headers: {
           "Content-Type": "application/json",
-          "user-agent": userAgent.toString(),
-      }}).then((res)=>res.json()).then((result)=>result.states).then((st)=>setStateList(st));
-        
+          }});
+         const resJSON = await response.json();
+         const states = resJSON.states;
+         setStateList(states);
       } catch {
 
     }

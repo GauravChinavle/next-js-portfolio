@@ -15,11 +15,6 @@ import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import moment from 'moment';
-const UserAgent = require('user-agents'); 
-   
-const userAgent = new UserAgent();
-
-const fetch = require('node-fetch');
 
 const useRowStyles = makeStyles({
   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -136,14 +131,12 @@ export default function CollapsibleTable(props) {
         filteredData=[];
         const date = moment().utc().utcOffset("+05:30").format('DD-MM-YYYY');
         const urlCenter = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district}&date=${date}`;
-        await fetch(urlCenter,{
+        const response = await fetch(urlCenter,{
           headers: {
           "Content-Type": "application/json",
-          "user-agent": userAgent.toString(),
-      }})
-      .then((res)=>res.json())
-      .then((result)=>result.centers)
-      .then((centers)=>{
+      }});
+       const resJSON = await response.json();
+       const centers = resJSON.centers;
         centers.map(
           function(item){
             var isCapacity = true;
@@ -158,7 +151,6 @@ export default function CollapsibleTable(props) {
              }
           }
       ) 
-      });
       setErrText("Last updated : "+date+ " " + moment().utc().utcOffset("+05:30").format("h:mm:ss a"));
       if(filteredData.length === 0){
         setIsAvailable("No data available.");
@@ -171,7 +163,7 @@ export default function CollapsibleTable(props) {
       } catch(e) {
         setErrText("ERROR : Try again after sometime");
     }
-  },5000)
+  },30000)
   return () => clearInterval(intervalId);
 },[district]);
 

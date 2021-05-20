@@ -6,10 +6,6 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import PropTypes from "prop-types";
 import CollapsibleTable from './Table';
-const fetch = require('node-fetch');
-const UserAgent = require('user-agents'); 
-   
-const userAgent = new UserAgent();
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -79,11 +75,13 @@ function GetDistrict(props) {
     async function fetchDistList(){ 
       try{
         const urlDist = `https://cdn-api.co-vin.in/api/v2/admin/location/districts/${state}`;
-        await fetch(urlDist,{
+        const response = await fetch(urlDist,{
           headers: {
           "Content-Type": "application/json",
-          "user-agent": userAgent.toString(),
-      }}).then((res)=>res.json()).then((result)=>result.districts).then((dt)=>setDistList(dt));
+         }});
+       const resJSON = await response.json();
+       const districts = resJSON.districts;
+       setDistList(districts)
         }catch(e){
             console.log(e);
       }
