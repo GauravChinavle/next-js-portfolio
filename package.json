@@ -20,7 +20,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3"
+    "react-scripts": "^4.0.3",
+    "user-agents": "^1.0.658"
   },
   "proxy": "http://www.gauravchinavle.dev/",
   "browserslist": {

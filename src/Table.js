@@ -11,12 +11,13 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
-import SvgIcon from '@material-ui/core/SvgIcon';
 import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import moment from 'moment';
-
+const UserAgent = require('user-agents'); 
+   
+const userAgent = new UserAgent();
 
 const fetch = require('node-fetch');
 
@@ -42,18 +43,6 @@ const useRowStyles = makeStyles({
 
 });
 
-
-
-function LightBulbIcon(props) {
-  return (
-    <SvgIcon {...props}>
-      <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" />
-    </SvgIcon>
-  );
-}
-
-
-
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
@@ -66,6 +55,9 @@ function Row(props) {
           <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
+        </TableCell>
+        <TableCell component="th" scope="row">
+          {row.block_name}
         </TableCell>
         <TableCell component="th" scope="row">
           {row.name}
@@ -113,6 +105,7 @@ function Row(props) {
 
 Row.propTypes = {
   row: PropTypes.shape({
+    block_name: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     from: PropTypes.string.isRequired,
     to: PropTypes.string.isRequired,
@@ -143,17 +136,17 @@ export default function CollapsibleTable(props) {
         filteredData=[];
         const date = moment().utc().utcOffset("+05:30").format('DD-MM-YYYY');
         const urlCenter = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district}&date=${date}`;
-        const response = await fetch(urlCenter,{
-          mode: 'cors',
+        await fetch(urlCenter,{
           headers: {
           "Content-Type": "application/json",
-          "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Mobile Safari/537.36"
-      }});
-        const resJSON = await response.json();
-        const centers = await resJSON.centers;
-        var isCapacity = true;
+          "user-agent": userAgent.toString(),
+      }})
+      .then((res)=>res.json())
+      .then((result)=>result.centers)
+      .then((centers)=>{
         centers.map(
           function(item){
+            var isCapacity = true;
               item.sessions.map((sess)=>{
                 if(sess.available_capacity!=0){
                   isCapacity=false;
@@ -165,6 +158,7 @@ export default function CollapsibleTable(props) {
              }
           }
       ) 
+      });
       setErrText("Last updated : "+date+ " " + moment().utc().utcOffset("+05:30").format("h:mm:ss a"));
       if(filteredData.length === 0){
         setIsAvailable("No data available.");
@@ -185,15 +179,16 @@ export default function CollapsibleTable(props) {
   return (
     <>
   <Typography className={classes.root} color="textSecondary">
-      <LightBulbIcon className={classes.lightBulb} />
-      {errText} 
+      <h5>{errText} <br/> Auto refresh every 30 seconds </h5>
     </Typography>
+    
     <TableContainer>
 <Paper style={{ overflowX: "auto" }}>
       <Table >
         <TableHead>
           <TableRow>
             <TableCell />
+            <TableCell>Block Name</TableCell>
             <TableCell>Center Name</TableCell>
             <TableCell align="right">From</TableCell>
             <TableCell align="right">To</TableCell>

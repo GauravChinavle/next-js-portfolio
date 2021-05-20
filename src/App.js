@@ -11,11 +11,13 @@ import {
   Route,
 } from "react-router-dom";
 const fetch = require('node-fetch');
-
+const UserAgent = require('user-agents'); 
+   
+const userAgent = new UserAgent();
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {'Developed by © '}
       <Link color="inherit" href="http://www.gauravchinavle.dev">
         gauravchinavle.dev
       </Link>{' '}
@@ -31,15 +33,12 @@ export default function App() {
     async function fetchStateList(){
       try{
         const urlState = 'https://cdn-api.co-vin.in/api/v2/admin/location/states';
-        const response = await fetch(urlState,{
+        await fetch(urlState,{
           headers: {
           "Content-Type": "application/json",
-          "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Mobile Safari/537.36"
-      }});
-        const resJSON = await response.json();
-        const states = await resJSON.states;
-        console.log("hello");
-        setStateList(states);
+          "user-agent": userAgent.toString(),
+      }}).then((res)=>res.json()).then((result)=>result.states).then((st)=>setStateList(st));
+        
       } catch {
 
     }
@@ -53,10 +52,7 @@ export default function App() {
   return (
     <Router>
     <div>
-      {/* A <Switch> looks through its children <Route>s and
-          renders the first one that matches the current URL. */}
       <Switch>
-        
         <Route path="/slots">
             <Container maxWidth="'lg'
                   | 'md'

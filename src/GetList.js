@@ -7,7 +7,9 @@ import Select from "@material-ui/core/Select";
 import PropTypes from "prop-types";
 import CollapsibleTable from './Table';
 const fetch = require('node-fetch');
-
+const UserAgent = require('user-agents'); 
+   
+const userAgent = new UserAgent();
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -77,16 +79,11 @@ function GetDistrict(props) {
     async function fetchDistList(){ 
       try{
         const urlDist = `https://cdn-api.co-vin.in/api/v2/admin/location/districts/${state}`;
-        const response = await fetch(urlDist,{
-          mode: 'cors',
+        await fetch(urlDist,{
           headers: {
           "Content-Type": "application/json",
-          "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Mobile Safari/537.36"
-      }});
-        const resJSON = await response.json();
-        const districts = await resJSON.districts;
-        console.log("hello");
-        setDistList(districts);
+          "user-agent": userAgent.toString(),
+      }}).then((res)=>res.json()).then((result)=>result.districts).then((dt)=>setDistList(dt));
         }catch(e){
             console.log(e);
       }
