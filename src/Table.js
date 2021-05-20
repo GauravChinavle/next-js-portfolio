@@ -163,7 +163,7 @@ export default function CollapsibleTable(props) {
       } catch(e) {
         setErrText("ERROR : Try again after sometime");
     }
-  },30000)
+  },5000)
   return () => clearInterval(intervalId);
 },[district]);
 
@@ -171,7 +171,7 @@ export default function CollapsibleTable(props) {
   return (
     <>
   <Typography className={classes.root} color="textSecondary">
-      <h5>{errText} <br/> Auto refresh every 30 seconds </h5>
+      <h5>{errText} <br/> Auto refresh every 5 seconds </h5>
     </Typography>
     
     <TableContainer>
