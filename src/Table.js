@@ -125,9 +125,10 @@ export default function CollapsibleTable(props) {
   let filteredData= [];
   const [isAvailable, setIsAvailable]=React.useState('');
   useEffect( () =>{
-    setErrText("Please wait...")
-    const intervalId = setInterval(async() => { 
+    getTable();
+    async function getTable(){
       try{
+        setErrText("Please wait...");
         filteredData=[];
         const date = moment().utc().utcOffset("+05:30").format('DD-MM-YYYY');
         const urlCenter = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district}&date=${date}`;
@@ -154,24 +155,25 @@ export default function CollapsibleTable(props) {
       setErrText("Last updated : "+date+ " " + moment().utc().utcOffset("+05:30").format("h:mm:ss a"));
       if(filteredData.length === 0){
         setIsAvailable("No data available.");
+        setCenterList([]);
       }else{
       setCenterList(filteredData);
       setIsAvailable("");
     }
-         
     
       } catch(e) {
         setErrText("ERROR : Try again after sometime");
     }
-  },5000)
-  return () => clearInterval(intervalId);
+  }
+  const intervalID = setInterval(getTable,10000);
+  return () => clearInterval(intervalID);
 },[district]);
 
 
   return (
     <>
   <Typography className={classes.root} color="textSecondary">
-      <h5>{errText} <br/> Auto refresh every 5 seconds </h5>
+      <h5>{errText} <br/> Auto refresh every 10 seconds </h5>
     </Typography>
     
     <TableContainer>
