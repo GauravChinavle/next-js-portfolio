@@ -12,7 +12,9 @@ This project provides a data for COVID-19 Vaccine Slots availability .
   ```
 
 ### Technologies used
-- [ReactJS](https://reactjs.org/) - _A JavaScript library for building user interfaces_
+- [React-JS](https://reactjs.org/) - _A JavaScript library for building user interfaces_
+- [Material-UI](https://material-ui.com/) - _React components for faster and easier web development_
+
 
 ### Modules used
 - [moment](https://www.npmjs.com/package/moment) -  _A JavaScript date library_
