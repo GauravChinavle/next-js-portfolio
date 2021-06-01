@@ -1,24 +1,18 @@
 # Covid-19 Vaccine Availability Tracker App
 
 ### Description
-This project provides a Whatsapp notification service for COVID-19 Vaccine Slots availability.
+This project provides a data for COVID-19 Vaccine Slots availability .
 
 ### How to use ?
   ```
-  git clone https://github.com/GauravChinavle/vaccine-twilio-whatsapp.git
-  cd vaccine-twilio-whatsapp
+  git clone https://github.com/GauravChinavle/vaccine-slots.git
+  cd vaccine-slots
   npm install
-  nodemon bin/www
+  npm start
   ```
 
 ### Technologies used
-- [Nodejs](https://nodejs.org/en/) - _JavaScript runtime built on Chrome's V8 JavaScript engine._
-- [Express](https://expressjs.com/) - _Fast, unopinionated, minimalist web framework for Node.js_
+- [ReactJS](https://reactjs.org/) - _A JavaScript library for building user interfaces_
 
 ### Modules used
-- [Twilio](https://www.twilio.com/) -  _Messaging service_
-- [Joi](https://www.npmjs.com/package/joi) - _Data validator as middleware_
-
-### Credentials required
-- Twilio
-###### _credentials should be saved in .env_
+- [moment](https://www.npmjs.com/package/moment) -  _ A JavaScript date library_
