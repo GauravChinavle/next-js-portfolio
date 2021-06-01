@@ -122,14 +122,14 @@ export default function CollapsibleTable(props) {
   const [centerList,setCenterList]= React.useState([]);
   const [errText, setErrText]=React.useState('');
   const {district} = props;
-  let filteredData= [];
+  
   const [isAvailable, setIsAvailable]=React.useState('');
   useEffect( () =>{
     getTable();
     async function getTable(){
       try{
+        let filteredData= [];
         setErrText("Please wait...");
-        filteredData=[];
         const date = moment().utc().utcOffset("+05:30").format('DD-MM-YYYY');
         const urlCenter = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district}&date=${date}`;
         const response = await fetch(urlCenter,{

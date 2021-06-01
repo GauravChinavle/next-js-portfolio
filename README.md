@@ -1,25 +1,24 @@
-# Create React App example
+# Covid-19 Vaccine Availability Tracker App
 
-## How to use
+### Description
+This project provides a Whatsapp notification service for COVID-19 Vaccine Slots availability.
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+### How to use ?
+  ```
+  git clone https://github.com/GauravChinavle/vaccine-twilio-whatsapp.git
+  cd vaccine-twilio-whatsapp
+  npm install
+  nodemon bin/www
+  ```
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/create-react-app
-cd create-react-app
-```
+### Technologies used
+- [Nodejs](https://nodejs.org/en/) - _JavaScript runtime built on Chrome's V8 JavaScript engine._
+- [Express](https://expressjs.com/) - _Fast, unopinionated, minimalist web framework for Node.js_
 
-Install it and run:
+### Modules used
+- [Twilio](https://www.twilio.com/) -  _Messaging service_
+- [Joi](https://www.npmjs.com/package/joi) - _Data validator as middleware_
 
-```sh
-npm install
-npm start
-```
-
-or:
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/create-react-app)
-
-## The idea behind the example
-
-This example demonstrates how you can use [Create React App](https://github.com/facebookincubator/create-react-app).
+### Credentials required
+- Twilio
+###### _credentials should be saved in .env_

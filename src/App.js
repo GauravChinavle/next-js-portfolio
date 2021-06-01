@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import GetState from './GetList';
+import SignInForm from './Subscribe';
 import MediaControlCard from './Home';
 import {
   BrowserRouter as Router,
@@ -62,9 +63,15 @@ export default function App() {
                 </Box>
             </Container>
         </Route>
+        <Route path="/subscribe">
+                <SignInForm />
+                <Copyright />
+            
+        </Route>
         <Route path="/">
             <MediaControlCard />
         </Route>
+        
       </Switch>
     </div>
   </Router>

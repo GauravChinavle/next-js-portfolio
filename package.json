@@ -9,6 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@date-io/date-fns": "^2.10.11",
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
     "clsx": "latest",
@@ -19,8 +20,12 @@
     "path": "^0.12.7",
     "react": "latest",
     "react-dom": "latest",
+    "react-hook-form": "^7.6.7",
+    "react-material-ui-form-validator": "^2.1.4",
+    "react-number-format": "^4.5.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
+    "react-text-mask": "^5.4.3",
     "user-agents": "^1.0.658"
   },
   "proxy": "http://www.gauravchinavle.dev/",
