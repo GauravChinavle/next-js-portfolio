@@ -59,7 +59,14 @@ function Row(props) {
         </TableCell>
         <TableCell align="right">{row.from}</TableCell>
         <TableCell align="right">{row.to}</TableCell>
-        <TableCell style={ {color : row.fee_type === 'Free' ? 'green':'red',} } align="right">{row.fee_type}</TableCell>
+        <TableCell  align="center">
+        <span
+                  style={ {backgroundColor : row.fee_type === 'Free' ? '#9fcf9f':'#f68f8f',padding: "2.5% 10%"
+                  } }
+                >
+                  {row.fee_type}
+                </span>
+                </TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -186,7 +193,7 @@ export default function CollapsibleTable(props) {
             <TableCell>Center Name</TableCell>
             <TableCell align="right">From</TableCell>
             <TableCell align="right">To</TableCell>
-            <TableCell align="right">Fee Type</TableCell>
+            <TableCell align="center">Fee Type</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
