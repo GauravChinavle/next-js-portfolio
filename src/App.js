@@ -14,7 +14,7 @@ import {
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Developed by © '}
+      {'Developed by 2021 © '}
       <Link color="inherit" href="http://www.gauravchinavle.dev">
         gauravchinavle.dev
       </Link>{' '}
