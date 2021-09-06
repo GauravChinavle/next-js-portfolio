@@ -80,6 +80,8 @@ function Row(props) {
                   <TableRow>
                     <TableCell >Date</TableCell>
                     <TableCell align="right">Min Age Limit</TableCell>
+                    <TableCell align="right">Dose 1</TableCell>
+                    <TableCell align="right">Dose 2</TableCell>
                     <TableCell align="right">Capacity</TableCell>
                     <TableCell align="right">Vaccine</TableCell>
                   </TableRow>
@@ -91,6 +93,8 @@ function Row(props) {
                         {sessionsRow.date}
                       </TableCell>
                       <TableCell align="right">{sessionsRow.min_age_limit}</TableCell>
+                      <TableCell align="right">{sessionsRow.available_capacity_dose1}</TableCell>
+                      <TableCell align="right">{sessionsRow.available_capacity_dose2}</TableCell>
                       <TableCell align="right">{sessionsRow.available_capacity}</TableCell>
                       <TableCell align="right">{sessionsRow.vaccine}</TableCell>
                     </TableRow>
@@ -117,6 +121,8 @@ Row.propTypes = {
       PropTypes.shape({
         date: PropTypes.string.isRequired,
         min_age_limit: PropTypes.string.isRequired,
+        available_capacity_dose1: PropTypes.number.isRequired,
+        available_capacity_dose2: PropTypes.number.isRequired,
         available_capacity: PropTypes.number.isRequired,
         vaccine: PropTypes.string.isRequired,
       }),
