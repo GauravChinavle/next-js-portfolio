@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@date-io/date-fns": "^2.10.11",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
+    "@mui/material": "^5.10.0",
     "clsx": "latest",
     "material-ui-image": "^3.3.2",
     "material-ui-next-responsive-table": "^0.5.1",
@@ -26,6 +29,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-text-mask": "^5.4.3",
+    "sass": "^1.54.9",
     "user-agents": "^1.0.658"
   },
   "proxy": "http://www.gauravchinavle.dev/",
