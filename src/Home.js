@@ -72,8 +72,11 @@ export default function MediaControlCard() {
           <Typography variant="subtitle1" color="textSecondary">
             Software Developer
           </Typography>
-          <MyButton variant="outlined" size="small" color="primary" href="./slots">
+          <MyButton variant="outlined" size="small" color="primary" href="./slots" style={{margin: "1%"}}>
         Go to Vaccine Slots
+      </MyButton>
+      <MyButton variant="outlined" size="small" color="primary" href="./splitwise" style={{margin: "1%"}}>
+        SplitWise
       </MyButton>
         </CardContent>
         
