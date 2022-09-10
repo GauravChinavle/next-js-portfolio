@@ -6,6 +6,9 @@ import Link from '@material-ui/core/Link';
 import GetState from './GetList';
 import SignInForm from './Subscribe';
 import MediaControlCard from './Home';
+import SplitWise from './SplitWise';
+import './App.scss'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -67,6 +70,9 @@ export default function App() {
                 <SignInForm />
                 <Copyright />
             
+        </Route>
+        <Route path="/splitwise">
+                <SplitWise />            
         </Route>
         <Route path="/">
             <MediaControlCard />
