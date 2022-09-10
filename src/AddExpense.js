@@ -104,10 +104,23 @@ export default function AddExpense({
         <Box sx={{ width: "90%", margin: "5%", textAlign: "center" }}>
             {expenses.map((expense, index) => {
                 return (
-                    <div className="row" >
-                    <div className="row" style={{marginTop: "8%"}}>
-                            <InputLabel id="demo-simple-select-label">{`Expense ${index + 1
+                    <div>
+                                            <div className="row" >
+
+                    <div className="col" >
+                            <InputLabel id="demo-simple-select-label" style={{float:"left"}}>{`Expense ${index + 1
                                 }`}</InputLabel>
+                                                                         </div>
+
+                                    {index !== 0 && (
+                                        <div className="col" >
+                                        <ColorButton onClick={() => handleOnRemove(index)}  style={{top:"-12px", float:"right"}}>
+                                            Remove
+                                        </ColorButton>
+                                        </div>
+                                        
+                                    )}
+                            
                         </div>
 
                         <div className="row" >
@@ -137,7 +150,10 @@ export default function AddExpense({
                                     onChange={(e) => handleOnChange(e, index)}
                                 />
                             </div>
-                            <div className="col" id={`text_field_${index}`}>
+
+                            </div>
+
+                            <div className="row" id={`text_field_${index}`}>
                                 <FormControl
                                     sx={{ m: 1, minWidth: 120, top: "-9px" }}
                                     size="small"
@@ -168,18 +184,9 @@ export default function AddExpense({
                                 </FormControl>
                             </div>
 
-                            {
-                                <div className="col" style={{ textAlign: "right" }}>
-                                    {index !== 0 && (
-                                        <ColorButton onClick={() => handleOnRemove(index)}>
-                                            Remove
-                                        </ColorButton>
-                                    )}
-                                </div>
-                            }
-                        </div>
+                           
                         <div className="row">
-                            <div className="col">
+                           
                                 <FormControl>
                                     <RadioGroup
                                         row
@@ -203,9 +210,11 @@ export default function AddExpense({
                                         />
                                     </RadioGroup>
                                 </FormControl>
-                            </div>
-                            <div className="col">
+                                </div>
+
                                 {expense.split == "specific" && (
+                                <div className="row">
+
                                     <FormControl sx={{ m: 1, width: 300 }}>
                                         <InputLabel id="demo-multiple-chip-label">
                                             Members
@@ -247,11 +256,9 @@ export default function AddExpense({
                                                 ))}
                                         </Select>
                                     </FormControl>
+                                    </div>
+
                                 )}
-                            </div>
-                            <div className="col"></div>
-                        </div>
-                        <hr />
                     </div>
                 );
             })}

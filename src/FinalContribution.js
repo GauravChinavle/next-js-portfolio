@@ -15,9 +15,14 @@ export default function FinalContribution({
 
     const [result, setResult] = React.useState([]);
     React.useEffect(()=>{
-        const splitResult =  split(expenses, members);
-        const result =  debt(splitResult);
-        setResult(result);
+        try {
+            const splitResult =  split(expenses, members);
+            const result =  debt(splitResult);
+            setResult(result);
+        } catch (e) {
+            console.log(e);
+        }
+        
     },[])
    
 

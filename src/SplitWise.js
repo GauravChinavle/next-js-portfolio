@@ -82,7 +82,7 @@ const [paidBy, setPaidBy] = React.useState('');
   return (
     <Container maxWidth="lg">
 
-    <Box sx={{ bgcolor: '#ffecbc', margin: '10px', padding: '10px', borderRadius:'4px' }}>
+    <Box sx={{ bgcolor: '#ffffff', margin: '10px', padding: '10px', borderRadius:'4px' }}>
       
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
@@ -130,7 +130,7 @@ const [paidBy, setPaidBy] = React.useState('');
                 Back
               </Button>
               <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleNext} sx={{ mr: 1 }} disabled={members?.length < 2}>
+              <Button onClick={handleNext} sx={{ mr: 1 }} disabled={(activeStep == 0 && members?.length < 2 )|| (activeStep == 1 && expenses.length < 1)}>
                 Next
               </Button>
               {/* {activeStep !== steps.length &&
