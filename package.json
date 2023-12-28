@@ -1,48 +1,36 @@
 {
-  "name": "create-react-app",
-  "version": "4.0.0",
+  "name": "gaurav_chinawale_portfolio",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@date-io/date-fns": "^2.10.11",
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@material-ui/core": "latest",
-    "@material-ui/icons": "latest",
-    "@mui/material": "^5.10.0",
-    "clsx": "latest",
-    "material-ui-image": "^3.3.2",
-    "material-ui-next-responsive-table": "^0.5.1",
-    "moment": "^2.29.1",
-    "node-fetch": "^2.6.1",
-    "path": "^0.12.7",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-hook-form": "^7.6.7",
-    "react-material-ui-form-validator": "^2.1.4",
-    "react-number-format": "^4.5.5",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
-    "react-text-mask": "^5.4.3",
-    "sass": "^1.54.9",
-    "user-agents": "^1.0.658"
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
+    "@material-ui/core": "4.12.4",
+    "@material-ui/icons": "4.11.3",
+    "@mui/icons-material": "5.15.1",
+    "@mui/lab": "5.0.0-alpha.157",
+    "@mui/material": "5.15.1",
+    "moment": "2.29.4",
+    "next": "14.0.4",
+    "react": "18",
+    "react-dom": "18",
+    "react-router-dom": "6.21.1",
+    "sharp": "0.33.1",
+    "typewriter-effect": "2.21.0",
+    "valid-url": "1.0.9"
   },
-  "proxy": "http://www.gauravchinavle.dev/",
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@types/node": "20",
+    "@types/react": "18",
+    "@types/react-dom": "18",
+    "eslint": "8",
+    "eslint-config-next": "14.0.4",
+    "typescript": "5"
   }
 }

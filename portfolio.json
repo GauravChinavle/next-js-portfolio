@@ -1,0 +1,55 @@
+{
+  "name": "Gaurav Chinawale",
+  "logoHeader": "GC.",
+  "workingStartDate": "4 March 2020",
+  "designation": "Senior Product Engineer",
+  "emailID": "chinawalegaurav@gmail.com",
+  "linkedinLink": "https://in.linkedin.com/in/gauravchinawale",
+  "githubLink": "https://github.com/GauravChinavle",
+  "experience": {
+    "Backend Development": [
+      "NodeJS",
+      "ExpressJS",
+      "Typescript",
+      "GraphQL"
+    ],
+    "Frontend Development": [
+      "ReactJS",
+      "NextJS",
+      "Material UI"
+    ],
+    "Testing Frameworks": [
+      "MochaJS",
+      "ChaiJS",
+      "SinonJS"
+    ],
+    "Infrastructure and Deployment": [
+      "PM2",
+      "Jenkins",
+      "Docker"
+    ],
+    "Databases": [
+      "MySQL",
+      "Redis"
+    ],
+    "Monitoring and Logging": [
+      "Datadog",
+      "Kibana"
+    ],
+    "Messaging Queue": [
+      "RabbitMQ"
+    ]
+  },
+  "liveDemos": {
+    "Vaccine slots tracker": {
+      "imagePath": "/assets/vaccine-slots.png",
+      "githubLink": "https://github.com/GauravChinavle/react-vaccine-slots",
+      "path": "/live-demos/vaccine-slots"
+    },
+    "Splitwise": {
+      "imagePath": "/assets/splitwise.png",
+      "githubLink": "https://github.com/GauravChinavle/react-vaccine-slots",
+      "path": "/live-demos/splitwise"
+    }
+  }
+}
