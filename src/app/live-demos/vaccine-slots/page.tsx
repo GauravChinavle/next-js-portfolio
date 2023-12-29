@@ -8,12 +8,10 @@ import { fetchStates } from "@/api";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Developed by © '}
-      <Link color="inherit" href="http://www.gauravchinavle.dev">
-        gauravchinavle.dev
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      {'Currenlty APIs not working due to CORS policy enabled at '}
+      <Link color="inherit" href="https://directory.apisetu.gov.in/api-collection/cowin">
+      directory.apisetu.gov.in
+      </Link>
     </Typography>
   );
 }
