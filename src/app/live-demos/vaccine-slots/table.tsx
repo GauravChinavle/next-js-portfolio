@@ -6,6 +6,7 @@ import { Box, Collapse, IconButton, Table, TableBody, TableCell, TableContainer,
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@material-ui/icons';
 import { moment } from '@/utils';
+import { fetchCenters } from "@/api";
 
 interface Session {
   date: string;
@@ -173,37 +174,37 @@ const CollapsibleTable: React.FC<CollapsibleTableProps> = (props) => {
 
 
 
-  useEffect(() => {
-    const getTable = async () => {
-      try {
-        const date = moment().utc().utcOffset('+05:30').format('DD-MM-YYYY');
-        const urlCenter = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district}&date=${date}`;
-        const response = await fetch(urlCenter, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const resJSON = await response.json();
-        const centers = resJSON.centers;
-        const filteredData = centers.filter((item: any) =>
-          item.sessions.some((sess: any) => sess.available_capacity !== 0)
-        );
-  
-        setErrText(
-          `Last updated: ${date} ${moment().utc().utcOffset('+05:30').format('h:mm:ss a')}`
-        );
-  
-        if (filteredData.length === 0) {
-          setIsAvailable('No data available.');
-          setCenterList([]);
-        } else {
-          setCenterList(filteredData);
-          setIsAvailable('');
+  const getTable = async () => {
+    try {
+      const date = moment().utc().utcOffset('+05:30').format('DD-MM-YYYY');
+
+      fetchCenters(district, date).then((centers) => {
+        if (centers && centers.length) {
+          const filteredData = centers?.filter((item: any) =>
+            item.sessions.some((sess: any) => sess.available_capacity !== 0)
+          );
+
+          setErrText(
+            `Last updated: ${date} ${moment().utc().utcOffset('+05:30').format('h:mm:ss a')}`
+          );
+
+          if (filteredData?.length === 0) {
+            setIsAvailable('No data available.');
+            setCenterList([]);
+          } else {
+            setCenterList(filteredData);
+            setIsAvailable('');
+          }
         }
-      } catch (e) {
-        setErrText('ERROR: Try again after some time');
       }
-    };
+      )
+
+
+    } catch (e) {
+      setErrText('ERROR: Try again after some time');
+    }
+  };
+  useEffect(() => {
     const intervalID = setInterval(getTable, 10000);
     return () => clearInterval(intervalID);
   }, [district]);

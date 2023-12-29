@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, Box, Link } from '@material-ui/core';
 import GetState from './get-states';
+import { fetchStates } from "@/api";
 
 function Copyright() {
   return (
@@ -20,22 +21,7 @@ function Copyright() {
 export default function VaccineSlots() {
   const [stateList, setStateList] = useState([]);
   useEffect(() => {
-    async function fetchStateList() {
-      try {
-        const urlState = 'https://cdn-api.co-vin.in/api/v2/admin/location/states';
-        const response = await fetch(urlState, {
-          headers: {
-            "Content-Type": "application/json",
-          }
-        });
-        const resJSON = await response.json();
-        const states = resJSON.states;
-        setStateList(states);
-      } catch {
-
-      }
-    }
-    fetchStateList();
+    fetchStates().then((states) => setStateList(states));
   }, []);
 
 

@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { InputLabel, MenuItem, FormControl, Select } from "@material-ui/core";
+import { fetchDistricts } from "@/api";
 
 import PropTypes from "prop-types";
 import CollapsibleTable from './table';
@@ -73,22 +74,7 @@ function GetDistrict(props: any) {
     const { state } = props;
 
     useEffect(() => {
-        async function fetchDistList() {
-            try {
-                const urlDist = `https://cdn-api.co-vin.in/api/v2/admin/location/districts/${state}`;
-                const response = await fetch(urlDist, {
-                    headers: {
-                        "Content-Type": "application/json",
-                    }
-                });
-                const resJSON = await response.json();
-                const districts = resJSON.districts;
-                setDistList(districts)
-            } catch (e) {
-                console.log(e);
-            }
-        }
-        fetchDistList();
+        fetchDistricts(state).then((districts) => setDistList(districts));
     }, [state]);
 
     const handleChangeDistrict = (event: any) => {
