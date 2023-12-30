@@ -44,12 +44,12 @@
     "Vaccine slots tracker": {
       "imagePath": "/assets/vaccine-slots.png",
       "githubLink": "https://github.com/GauravChinavle/react-vaccine-slots",
-      "path": "/live-demos/vaccine-slots"
+      "url": "https://vaccine-slots-tracker.netlify.app/s"
     },
     "Splitwise": {
       "imagePath": "/assets/splitwise.png",
-      "githubLink": "https://github.com/GauravChinavle/react-vaccine-slots",
-      "path": "/live-demos/splitwise"
+      "githubLink": "https://github.com/GauravChinavle/splitwise",
+      "url": "https://splitsync.netlify.app/"
     }
   }
 }

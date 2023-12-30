@@ -30,7 +30,7 @@ export  default function Projects () {
                         </button>
                         <button
                           className="btn btn-color-2 project-btn"
-                          onClick={() => location.href=demoValues.path}
+                          onClick={() => window.open(demoValues.url, "_blank")}
                         >
                           Live Demo
                         </button>
