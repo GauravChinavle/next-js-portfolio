@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Html, Head } from "next/document";
+import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import React from 'react';
 import Navbar from "@/components/Navbar";
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <Html lang="en">
+    <html lang="en">
       <Head>
         <meta  charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -28,8 +28,8 @@ export default function RootLayout({
       </Head>
       <body className={inter.className}>
         <Navbar/>
-        {children} 
+        {children}
       </body>
-    </Html>
+    </html>
   )
 }
