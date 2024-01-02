@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { Html, Head } from "next/document";
 import { Inter } from 'next/font/google'
 import React from 'react';
 import Navbar from "@/components/Navbar";
@@ -18,21 +18,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <head>
+    <Html lang="en">
+      <Head>
         <meta  charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>My Portfolio</title>
-      </head>
+      </Head>
       <body className={inter.className}>
-      <React.StrictMode>
-
         <Navbar/>
-        {children}
-        </React.StrictMode>
-
+        {children} 
       </body>
-    </html>
+    </Html>
   )
 }
