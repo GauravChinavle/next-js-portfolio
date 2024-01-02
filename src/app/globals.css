@@ -380,7 +380,7 @@ article .icon {
 
 #projects {
   position: relative;
-  height: 80vh;
+  height: fit-content;
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
@@ -395,8 +395,6 @@ article .icon {
 
 .project-img {
   border-radius: 2rem;
-  width: 90%;
-  height: 90%;
 }
 
 .project-title {

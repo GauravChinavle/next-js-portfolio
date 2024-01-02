@@ -14,9 +14,9 @@ export  default function Projects () {
                       <div className="article-container">
                         <Image
                           src={demoValues.imagePath}
-                          width={300}
-                          height={300}
-                          alt="Project 2"
+                          width={400}
+                          height={200}
+                          alt={demo}
                           className="project-img"
                         />
                       </div>
