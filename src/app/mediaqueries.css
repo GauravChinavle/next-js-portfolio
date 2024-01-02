@@ -1,15 +1,11 @@
 @media screen and (max-width: 1400px) {
   #profile {
-    height: 83vh;
+    height: 80vh;
     margin-bottom: 6rem;
     padding-top: 5rem;
   }
   .about-containers {
     flex-wrap: wrap;
-  }
-  #contact,
-  #projects {
-    height: 80vh;
   }
   .section__text__p3, .section__text p.section__text__p3 {
     font-size: 0.8rem;
