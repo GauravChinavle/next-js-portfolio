@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Html, Head } from "next/document";
 import { Inter } from 'next/font/google'
 import React from 'react';
