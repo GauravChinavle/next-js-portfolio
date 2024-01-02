@@ -9,7 +9,7 @@
   }
   #contact,
   #projects {
-    height: fit-content;
+    height: 80vh;
   }
   .section__text__p3, .section__text p.section__text__p3 {
     font-size: 0.8rem;
@@ -62,7 +62,7 @@
 @media screen and (max-width: 600px) {
   #contact,
   footer {
-    height: 40vh;
+    height: 70vh;
   }
   #profile {
     height: 83vh;

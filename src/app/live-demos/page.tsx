@@ -7,7 +7,7 @@ export default function Projects() {
   const { liveDemos } = Portfolio;
   return (
     <section id="projects">
-      <div className="experience-details-container">
+      <div className="list-container">
         <div className="about-containers">
           {
             liveDemos && Object.entries(liveDemos).map(([demo, demoValues]: [string, any]) => (
@@ -29,7 +29,7 @@ export default function Projects() {
                     className="icon"
                     height={30}
                     width={30}
-                    onClick={() => location.href = demoValues.githubLink}
+                    onClick={() => window.open(demoValues.githubLink, "_blank")}
                   />
                   <Image
                     src={openLinkLogo}

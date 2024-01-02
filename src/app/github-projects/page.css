@@ -1,6 +1,5 @@
 .list-container {
     max-height: 100vh;
-    overflow-y: auto;
 }
 
 .list-item {

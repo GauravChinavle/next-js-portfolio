@@ -340,7 +340,9 @@ section {
   position: relative;
   display: flex;
   justify-content: center;
-  height: fit-content;
+  height: 75vh;
+  overflow-y: scroll;
+  padding-right: 5px;
 }
 
 .experience-sub-title {
@@ -381,12 +383,13 @@ article .icon {
 
 #projects {
   position: relative;
-  height: fit-content;
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   overflow-y: scroll;
   padding: 2rem;
+  height: fit-content;
+  max-height: 80vh;
 }
 
 .color-container {
