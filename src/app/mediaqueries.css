@@ -16,6 +16,10 @@
     margin-bottom: 1rem;
     font-weight: 300;
   }
+  .project-img {
+    border-radius: 2rem;
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 1200px) {

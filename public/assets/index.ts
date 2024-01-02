@@ -13,6 +13,7 @@ import profilePic from "./profile-pic.png";
 import project1 from "./project-1.png";
 import project2 from "./project-2.png";
 import project3 from "./project-3.png";
+import openLinkLogo from "./open-link.png";
 
 export {
     aboutPic,
@@ -29,6 +30,7 @@ export {
     profilePic,
     project1,
     project2,
-    project3
+    project3,
+    openLinkLogo
 }
 
