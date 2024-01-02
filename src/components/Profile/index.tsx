@@ -13,6 +13,7 @@ export default function Profile() {
                     alt="My profile picture" 
                     height={300}
                     width={300}
+                    priority
                 />
             </div>
             <div className="section__text">
