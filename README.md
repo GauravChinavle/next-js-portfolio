@@ -5,7 +5,7 @@ This project provides a portfolio website built using NextJS and GraphQL. Which 
 
 ### How to use ?
   ```
-  git clone https://github.com/GauravChinavle/gc_portfolio.git
+  git clone https://github.com/GauravChinavle/next-js-portfolio.git
   cd gc_portfolio
   npm install
   npm start
